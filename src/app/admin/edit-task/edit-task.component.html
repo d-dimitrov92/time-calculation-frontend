@@ -1,0 +1,90 @@
+<div class="row">
+  <br />
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <div *ngIf="!task">Loading...</div>
+    <form *ngIf="task"
+      class="form-horizontal"
+      (ngSubmit)="onTaskUpdate(addTaskForm)"
+      #addTaskForm="ngForm"
+    >
+      <div class="form-group">
+        <label for="make" class="col-sm-2 control-label">Лого</label>
+        <div class="col-sm-10">
+          <input
+            [(ngModel)]="task.make"
+            name="logoInput"
+            ngModel
+            #logoInput="ngModel"
+            type="text"
+            class="form-control"
+            id="make"
+            placeholder="Kentamed, Entermed, Manomedical etc."
+            required
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="model" class="col-sm-2 control-label">Модел</label>
+        <div class="col-sm-10">
+          <input
+            [(ngModel)]="task.model"
+            name="modelInput"
+            ngModel
+            #modelInput="ngModel"
+            type="text"
+            class="form-control"
+            id="model"
+            placeholder="1E, RF100, RF-B etc."
+            required
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="partOf" class="col-sm-2 control-label">Част от</label>
+        <div class="col-sm-10">
+          <input
+            [(ngModel)]="task.partOf"
+            name="partOfInput"
+            ngModel
+            #modelInput="ngModel"
+            type="text"
+            class="form-control"
+            id="partOf"
+            placeholder="Част от кой модул е тази операция"
+            required
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nameOfDevice" class="col-sm-2 control-label"
+          >Операция</label
+        >
+        <div class="col-sm-10">
+          <input
+            [(ngModel)]="task.taskName"
+            name="taskNameInput"
+            ngModel
+            #deviceName="ngModel"
+            type="text"
+            class="form-control"
+            id="nameOfTask"
+            placeholder="Име на операцията"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success btn-default">
+            Добави
+          </button>
+        </div>
+      </div>
+      <div [ngClass]="hiddenClass" class="message success" *ngIf="isFormValid"> Успешно добавяне. </div>
+      <div [ngClass]="hiddenClass" class="message error" *ngIf="!isFormValid"> Грешка. </div>
+    </form>
+  </div>
+  <div class="col-sm-3"></div>
+</div>

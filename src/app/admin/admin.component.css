@@ -1,0 +1,13 @@
+.container-fluid {
+  padding: 0;
+}
+
+li a {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.content {
+  padding-left: 8px;
+  padding-right: 8px;
+}

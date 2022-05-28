@@ -1,0 +1,24 @@
+<div class="row" *ngIf="workingTask && !isEnded">
+  <h2>{{ nowDate }}</h2><br>
+
+  <h2 *ngIf="isStarted">Вие работите по </h2>
+  <h2 *ngIf="!isStarted">В момента сте в режим пауза</h2>
+  <h2>-----------------------------------------</h2>
+  <h2>{{ workingTask.task.model }}</h2>
+  <h2>{{ workingTask.task.partOf }}</h2>
+  <h1>{{ workingTask.task.taskName }}</h1>
+  <h2>{{workingTask.count}} бр.</h2>
+  <h2>-----------------------------------------</h2>
+
+  <div class="row text-center">
+    <a type="button" class="btn btn-success btn-lg" (click)="onStartTask()" *ngIf="!isStarted">Старт</a>
+    <a type="button" class="btn btn-warning btn-lg" (click)="onPauseTaskAndBack('back')" *ngIf="!isPaused">Пауза и назад</a>
+    <a type="button" class="btn btn-warning btn-lg" (click)="onPauseTask()" *ngIf="!isPaused">Пауза</a>
+    <a type="button" class="btn btn-danger btn-lg" (click)="onStopTask()">Приключване</a>
+  </div>
+
+</div>
+
+<div class="row" *ngIf="isEnded">
+  Вие приключихте.
+</div>

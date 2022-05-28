@@ -1,0 +1,107 @@
+<div class="row">
+  <br />
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <form
+      class="form-horizontal"
+      (ngSubmit)="onTaskAdded(addTaskForm)"
+      #addTaskForm="ngForm"
+    >
+      <div class="form-group">
+        <label for="make" class="col-sm-2 control-label">Лого</label>
+        <div class="col-sm-10">
+          <select required
+            name="logoInput"
+            id="make"
+            ngModel
+            #logoInput="ngModel"
+            class="form-control"
+          >
+            <option value="" selected disabled hidden>Изберете Лого</option>
+            <option value="Kentamed">Kentamed</option>
+            <option value="Entermed">Entermed</option>
+            <option value="SoarMed">SoarMed</option>
+          </select>
+          <!-- <input
+            name="logoInput"
+            ngModel
+            #logoInput="ngModel"
+            type="text"
+            class="form-control"
+            id="make"
+            placeholder="Kentamed, Entermed, Manomedical etc."
+          /> -->
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="model" class="col-sm-2 control-label">Модел</label>
+        <div class="col-sm-10">
+          <select required
+            name="modelInput"
+            id="model"
+            class="form-control"
+            ngModel
+            #modelInput="ngModel"
+          >
+            <option value="" selected disabled hidden>Изберете Модел</option>
+            <option value="RF100">RF100</option>
+            <option value="1E">1E</option>
+            <option value="hARTT">hARTT</option>
+          </select>
+          <!-- <input
+            name="modelInput"
+            ngModel
+            #modelInput="ngModel"
+            type="text"
+            class="form-control"
+            id="model"
+            placeholder="1E, RF100, RF-B etc."
+          /> -->
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="partOf" class="col-sm-2 control-label">Част от</label>
+        <div class="col-sm-10">
+          <input
+            name="partOfInput"
+            ngModel
+            #modelInput="ngModel"
+            type="text"
+            class="form-control"
+            id="partOf"
+            placeholder="Част от кой модул е тази операция"
+            required
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nameOfDevice" class="col-sm-2 control-label"
+          >Операция</label
+        >
+        <div class="col-sm-10">
+          <input
+            name="deviceName"
+            ngModel
+            #deviceName="ngModel"
+            type="text"
+            class="form-control"
+            id="nameOfDevice"
+            placeholder="Име на операцията"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success btn-default">
+            Добави
+          </button>
+        </div>
+      </div>
+      <div [ngClass]="hiddenClass" class="message success" *ngIf="isFormValid"> Успешно добавяне. </div>
+      <div [ngClass]="hiddenClass" class="message error" *ngIf="!isFormValid"> Грешка. </div>
+    </form>
+  </div>
+  <div class="col-sm-3"></div>
+</div>

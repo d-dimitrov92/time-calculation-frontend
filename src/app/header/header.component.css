@@ -1,0 +1,28 @@
+.navbar-brand img {
+  width: auto;
+  height: 48px;
+}
+
+.h4 {
+  padding: 1.25em 0.8em;
+  margin: 0;
+}
+
+.navbar-brand {
+  padding: 10px;
+}
+
+.greeting-box {
+  display: inline-block;
+  margin-top: 23px;
+}
+
+.greeting {
+  padding-left: 0.25rem;
+  padding-right: 0;
+  cursor: default;
+}
+
+.username-greet {
+  text-transform: uppercase;
+}

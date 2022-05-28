@@ -1,0 +1,62 @@
+<div class="row">
+    <p class="text-center h2">Влизане в системата</p>
+    <p class="text-center paragraph h3">Въведете вашите данни</p><br>
+</div>
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<div class="row" *ngIf="!isLoading">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <form class="form-horizontal" (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
+            <div class="form-group"
+                [class]="username.invalid == true ? 'has-error has-feedback' : 'has-success has-feedback'">
+                <label for="username" class="col-sm-3 control-label">Псевдоним</label>
+                <div class="col-sm-6">
+                    <input autofocus name="username" type="text" class="form-control" id="username"
+                        aria-describedby="inputSuccess3Status" ngModel #username="ngModel" required minlength="3" autocomplete="off">
+
+                    <ng-container *ngIf="username.invalid">
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(error)</span>
+                    </ng-container>
+
+                    <ng-container *ngIf="!username.invalid">
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="form-group"
+                [class]="password.invalid == true ? 'has-error has-feedback' : 'has-success has-feedback'">
+                <label for="inputPassword3" class="col-sm-3 control-label">Парола</label>
+                <div class="col-sm-6">
+                    <input name="password" type="password" class="form-control" aria-describedby="inputSuccess3Status"
+                        id="inputPassword3" minlength="3" ngModel #password="ngModel" required>
+
+                    <ng-container *ngIf="password.invalid">
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(error)</span>
+                    </ng-container>
+
+                    <ng-container *ngIf="!password.invalid">
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <button type="submit" class="btn btn-lg btn-success">Влез</button>
+                </div>
+            </div>
+
+            <!-- <div [ngClass]="hiddenClass" class="message error" *ngIf="isFormValid"> Грешка. </div> -->
+            <div [ngClass]="hiddenClass" class="message error" *ngIf="!isFormValid"> Грешка. </div>
+
+        </form>
+    </div>
+    <div class="col-sm-2"></div>
+</div>

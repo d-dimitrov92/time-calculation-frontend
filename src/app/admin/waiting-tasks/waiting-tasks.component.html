@@ -1,0 +1,35 @@
+<div class="row" *ngIf="isWaitingTasks && !isLoading">
+  <table class="table table-striped">
+    <tbody>
+      <tr style="font-weight: 700">
+        <td>Име</td>
+        <td>Модел</td>
+        <td>Блок</td>
+        <td>Задача</td>
+        <td>Брой</td>
+        <td>Време за брой</td>
+        <td>Общо време</td>
+        <td>Действия</td>
+      </tr>
+      <tr *ngFor="let task of waitingTasks">
+        <td>{{ task.worker.fullName }}</td>
+        <td>{{ task.task.model }}</td>
+        <td>{{ task.task.partOf }}</td>
+        <td>{{ task.task.taskName }}</td>
+        <td>{{ task.count }}</td>
+        <td>{{ ((task.timeAccumulated / task.count) / 60).toFixed(2) }} мин</td>
+        <td>{{ (task.timeAccumulated / 60).toFixed(2) }} мин</td>
+        <td>
+          <a class="btn btn-sm btn-success" (click)="onAction('ended', task._id)">Approve</a>
+          <a class="btn btn-sm btn-danger" (click)="onAction('canceled', task._id)">Cancel</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row" *ngIf="!isWaitingTasks && !isLoading">
+  <h1>Няма задачи за одобрение.</h1>
+</div>
+<div class="row" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>

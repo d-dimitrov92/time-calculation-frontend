@@ -1,0 +1,10 @@
+.controls {
+  position: absolute;
+  display: inline-block;
+  top: 5px;
+  right: 15px;
+}
+
+a.btn {
+  margin-left: 10px;
+}

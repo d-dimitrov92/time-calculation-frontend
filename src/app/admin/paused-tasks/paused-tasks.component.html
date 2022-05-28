@@ -1,0 +1,124 @@
+<div class="row">
+  <div class="col-sm-3">
+    <form
+      class="form-horizontal"
+      (ngSubmit)="onTaskAdded(giveTaskForm)"
+      #giveTaskForm="ngForm"
+    >
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="worker-input" class="col-sm-2 control-label"
+            >Работник</label
+          >
+          <div class="col-sm-10">
+            <input
+              [(ngModel)]="workerName"
+              name="workerInput"
+              type="text"
+              class="form-control"
+              id="worker-input"
+              ngModel
+              #workerInput="ngModel"
+              required
+            />
+            <input
+              [(ngModel)]="workerId"
+              name="workerIdInput"
+              type="text"
+              class="form-control"
+              id="worker-id-input"
+              ngModel
+              #workerIdInput="ngModel"
+            />
+            <!-- <p>---| {{ workerInput.value }} |---</p>
+          <p>---| {{ workerIdInput.value }} |---</p> -->
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="task-input" class="col-sm-2 control-label">Задача</label>
+          <div class="col-sm-10">
+            <input
+              [(ngModel)]="taskName"
+              name="taskInput"
+              type="text"
+              class="form-control"
+              id="task-input"
+              ngModel
+              #taskInput="ngModel"
+              required
+            />
+            <input
+              [(ngModel)]="taskId"
+              name="taskIdInput"
+              type="text"
+              class="form-control"
+              id="task-id-input"
+              ngModel
+              #taskIdInput="ngModel"
+            />
+            <!-- <p>---| {{ taskInput.value }} |---</p>
+          <p>---| {{ taskIdInput.value }} |---</p> -->
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success">Add Task</button>
+        </div>
+      </div>
+      <div [ngClass]="hiddenClass" class="message success" *ngIf="isFormValid">
+        Успешно добавяне.
+      </div>
+      <div [ngClass]="hiddenClass" class="message error" *ngIf="!isFormValid">
+        Грешка.
+      </div>
+    </form>
+  </div>
+
+  <div class="col-sm-5" *ngIf="!isLoading">
+    <div *ngIf="!pausedTasksCount"><h2>No tasks paused</h2></div>
+    <mat-expansion-panel expanded>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Задачи на пауза</mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul class="list-group">
+        <div *ngFor="let task of allUsersPausedTasks">
+          <li
+            class="list-group-item"
+            #taskNameItem
+            (click)="onUpdateTaskInput(taskNameItem.innerText, task._id!)"
+          >
+            {{ task.task.model }} - {{ task.task.partOf }} -
+            {{ task.task.taskName }} -
+            {{ task.count }} бр.
+          </li>
+        </div>
+      </ul>
+    </mat-expansion-panel>
+  </div>
+
+  <div class="col-sm-4" *ngIf="!isLoading">
+    <mat-expansion-panel class="exp" expanded>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Изберете изпълнител от списъка: </mat-panel-title>
+        <mat-panel-description>
+          <!-- This is a summary of the content -->
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let worker of workers"
+          #workerNameItem
+          (click)="onUpdateWorkerInput(workerNameItem.innerText, worker._id!)"
+        >
+          {{ worker.fullName }}
+        </li>
+      </ul>
+    </mat-expansion-panel>
+  </div>
+  <div class="col-sm-9" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

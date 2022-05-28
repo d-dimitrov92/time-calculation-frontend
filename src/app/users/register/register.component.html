@@ -1,0 +1,98 @@
+<div class="row">
+    <p class="text-center h2">Регистрация</p>
+    <p class="text-center paragraph h3">Въведете вашите данни</p><br>
+
+</div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div class="row" *ngIf="!isLoading">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <form class="form-horizontal" (ngSubmit)="onRegister(registerForm)" #registerForm="ngForm">
+            <div class="form-group has-feedback"
+                [class]="username.invalid == true ? 'has-error' : 'has-success'">
+                <label for="username" class="col-sm-3 control-label">Псевдоним</label>
+                <div class="col-sm-6">
+                    <input name="username" type="text" class="form-control" id="username"
+                        aria-describedby="inputSuccess3Status" ngModel #username="ngModel" required minlength="3" autocomplete="off">
+
+                    <ng-container *ngIf="username.invalid">
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(error)</span>
+                    </ng-container>
+
+                    <ng-container *ngIf="!username.invalid">
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback"
+                [class]="fullName.invalid == true ? 'has-error' : 'has-success'">
+                <label for="fullName" class="col-sm-3 control-label">Име и Фамилия</label>
+                <div class="col-sm-6">
+                    <input name="fullName" type="text" class="form-control" id="fullName"
+                        aria-describedby="inputSuccess3Status" ngModel #fullName="ngModel" required minlength="6" autocomplete="off">
+
+                    <ng-container *ngIf="fullName.invalid">
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(error)</span>
+                    </ng-container>
+
+                    <ng-container *ngIf="!fullName.invalid">
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </ng-container>
+                </div>
+            </div>
+
+            <!-- password.value?.length ?  -->
+
+            <div class="form-group has-feedback"
+                [class]="password.invalid == true ? 'has-error' : 'has-success'">
+                <label for="inputPassword3" class="col-sm-3 control-label">Парола</label>
+                <div class="col-sm-6">
+                    <input name="password" type="password" class="form-control" aria-describedby="inputSuccess3Status"
+                        id="inputPassword3" minlength="3" ngModel #password="ngModel" required>
+
+                    <ng-container *ngIf="password.invalid">
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(error)</span>
+                    </ng-container>
+
+                    <ng-container *ngIf="!password.invalid">
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback"
+                [class]="password.value !== rePassword.value || rePassword.value == '' ? 'has-error' : 'has-success'">
+                <label for="rePass" class="col-sm-3 control-label re-pass">Повтори Парола</label>
+                <div class="col-sm-6">
+                    <input name="rePassword" type="password" class="form-control" aria-describedby="inputSuccess3Status"
+                        id="rePass" minlength="3" ngModel #rePassword="ngModel" required>
+
+                    <ng-container *ngIf="password.value !== rePassword.value || rePassword.value == ''">
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(error)</span>
+                    </ng-container>
+
+
+                    <ng-container *ngIf="password.value == rePassword.value && rePassword.value != ''">
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="false"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <button type="submit" class="btn btn-lg btn-success">Регистрирай се</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-2"></div>
+</div>

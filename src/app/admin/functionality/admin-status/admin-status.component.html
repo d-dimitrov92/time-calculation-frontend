@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <mat-expansion-panel *ngFor="let user of allUsers">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ user.fullName }}
+        </mat-panel-title>
+        <mat-panel-description *ngIf="user.role == 'admin'">
+          Админ
+        </mat-panel-description>
+        <mat-panel-description *ngIf="user.role != 'admin'">
+          Не е Админ
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form (ngSubmit)="onChangeAdminStatus(toggleAdminStatusForm, user._id!)" #toggleAdminStatusForm="ngForm">
+        <div class="form-group">
+          <label for="exampleInputName2">Да се активира ли админ статусът на дадения потребител? </label>
+
+          <p>ID: {{user._id}}</p>
+          <div class="radio">
+            <label>
+              <input type="radio" name="adminStatus" id="optionsRadios1" value="admin" checked ngModel #on="ngModel">
+              Активиране
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="adminStatus" id="optionsRadios2" value="user" ngModel #off="ngModel">
+              Деактивиране
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-default">Напред и презареди</button>
+      </form>
+    </mat-expansion-panel>
+  </div>
+  <div class="col-sm-2"></div>
+</div>

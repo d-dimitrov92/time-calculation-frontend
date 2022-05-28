@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+      <p class="text-center h3">Панел за управление</p>
+    </div>
+    <div class="row" style="margin-bottom: 24px;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/admin', 'add-task']">Добави задача към списъка</a></li>
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/admin', 'all-tasks']">Списък всички задачи</a></li>
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/admin', 'give-task']">Раздай задача</a></li>
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/admin', 'paused-tasks']">Задачи на пауза</a></li>
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/admin', 'now-working']">Активни задачи</a></li>
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/admin', 'get-by-status', 'waiting']">Задачи за одобрение</a></li>
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/admin', 'statistics']">Статистика</a></li>
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/admin', 'functionality']">Инструменти</a></li>
+        </ul>
+    </div>
+
+    <div class="row content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

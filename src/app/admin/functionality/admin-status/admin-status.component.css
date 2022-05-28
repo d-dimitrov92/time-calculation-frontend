@@ -1,0 +1,7 @@
+mat-expansion-panel {
+  margin-bottom: 2px;
+}
+
+mat-panel-description {
+  justify-content: right;
+}

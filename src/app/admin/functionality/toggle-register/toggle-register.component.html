@@ -1,0 +1,31 @@
+<!-- <div class="row">
+    <p>i'm toggling</p>
+    <div class="btn btn-primary" (click)="toggleMe()">toggle</div>
+
+    <span style="border: solid black 1px;" *ngIf="isOn">
+        <span>Hello</span>
+    </span>
+</div> -->
+
+<div class="row container">
+  <form (ngSubmit)="toggleRegister(toggleRegisterForm)" #toggleRegisterForm="ngForm">
+    <div class="form-group">
+      <label for="exampleInputName2">Какво да бъде състоянието на регистрацията? </label>
+
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios1" value="true" checked ngModel #on="ngModel">
+          Включено
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="false" ngModel #off="ngModel">
+          Изключено
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-default">Напред и презареди</button>
+  </form>
+</div>

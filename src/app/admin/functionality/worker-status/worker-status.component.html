@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <mat-expansion-panel *ngFor="let user of allUsers" #panel (mouseenter)="panel.open()" (mouseleave)="panel.close()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ user.fullName }}
+        </mat-panel-title>
+        <mat-panel-description *ngIf="user.isWorker">
+          В списъка
+        </mat-panel-description>
+        <mat-panel-description *ngIf="!user.isWorker">
+          Извън списъка
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form (ngSubmit)="onChangeWorkerStatus(toggleWorkerStatusForm, user._id!)" #toggleWorkerStatusForm="ngForm">
+        <div class="form-group">
+          <label for="exampleInputName2">Да се показва ли в списъка с работници дадения работник? </label>
+
+          <p>ID: {{user._id}}</p>
+          <div class="radio">
+            <label>
+              <input type="radio" name="workerStatus" id="optionsRadios1" value="true" checked ngModel #on="ngModel">
+              В списъка
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="workerStatus" id="optionsRadios2" value="false" ngModel #off="ngModel">
+              Извън списъка
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-default">Напред и презареди</button>
+      </form>
+    </mat-expansion-panel>
+  </div>
+  <div class="col-sm-2"></div>
+</div>

@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-2">
+      <div class="list-group">
+          <a routerLinkActive="active" class="list-group-item" [routerLink]="['/admin', 'statistics', 'average-for-unit']">Средно време за изработка на апаратите</a>
+          <!-- <a routerLinkActive="active" class="list-group-item" [routerLink]="['/statistics', 'functionality', 'admin-status']">Смяна админ статус</a>
+          <a routerLinkActive="active" class="list-group-item" [routerLink]="['/statistics', 'functionality', 'worker-status']">Смяна работник статус</a> -->
+      </div>
+  </div>
+  <div class="col-sm-10">
+      <router-outlet></router-outlet>
+  </div>
+</div>

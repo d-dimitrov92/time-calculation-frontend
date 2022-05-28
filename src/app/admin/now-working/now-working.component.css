@@ -1,0 +1,25 @@
+/* .col-sm-4 {
+  outline: solid red 2px;
+} */
+
+/* .del-btn {
+  display: inline-block;
+  position: relative;
+} */
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 14%;
+}
+
+.hidden-item {
+  display: none;
+}

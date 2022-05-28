@@ -1,0 +1,56 @@
+<div class="row" *ngIf="!isLoading">
+  <div class="col-sm-4">
+    <p>Pending tasks:</p>
+    <div *ngIf="!pendingTasksCount"><h2>No tasks added</h2></div>
+    <ul class="list-group">
+      <div *ngFor="let task of allUsersPendingTasks">
+        <li class="list-group-item item">
+          {{ task.task.model }} - {{ task.task.partOf }} -
+          {{ task.task.taskName }} - {{ task.worker.fullName }} -
+          {{ task.count }} бр.
+          <div class="actions">
+            <button (click)="onUpdate(task._id)" class="btn btn-warning upd-btn">U</button>
+            <button (click)="onDelete(task._id)" class="btn btn-danger del-btn">X</button>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <div class="col-sm-4">
+    <p>Started tasks:</p>
+    <div *ngIf="!startedTasksCount"><h2>No tasks started</h2></div>
+    <ul class="list-group">
+      <div *ngFor="let task of allUsersStartedTasks">
+        <li class="list-group-item item">
+          {{ task.task.model }} - {{ task.task.partOf }} -
+          {{ task.task.taskName }} - {{ task.worker.fullName }} -
+          {{ task.count }} бр.
+          <div class="actions">
+            <button (click)="onUpdate(task._id)" class="btn btn-warning upd-btn">U</button>
+            <button (click)="onDelete(task._id)" class="btn btn-danger del-btn">X</button>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <div class="col-sm-4">
+    <p>Paused tasks:</p>
+    <div *ngIf="!pausedTasksCount"><h2>No tasks paused</h2></div>
+    <ul class="list-group">
+      <div *ngFor="let task of allUsersPausedTasks">
+        <li class="list-group-item item">
+          {{ task.task.model }} - {{ task.task.partOf }} -
+          {{ task.task.taskName }} - {{ task.count }} бр.
+          <div class="actions">
+            <button (click)="onUpdate(task._id)" class="btn btn-warning upd-btn">U</button>
+            <button (click)="onDelete(task._id)" class="btn btn-danger del-btn">X</button>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>
+
+<div class="row" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>

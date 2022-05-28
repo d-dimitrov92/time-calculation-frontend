@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="table-header">RF100</div>
+    <table class="table table-striped">
+      <tbody>
+        <tr class="table-sub-header">
+          <td>Модул</td>
+          <td>Дейност</td>
+          <td>Средно</td>
+          <!-- <td>SD</td> -->
+        </tr>
+        <tr *ngFor="let task of rf100Tasks">
+          <td>{{ task.partOf }}</td>
+          <td>{{ task.taskName }}</td>
+          <td>{{ (task.averageTime / 60).toFixed(1) }} мин</td>
+          <!-- <td>{{ (task.standardDeviation / 60).toFixed(1) }}</td> -->
+        </tr>
+        <tr class="total-time">
+          <td></td>
+          <td>Общо:</td>
+          <td>{{ (rf100Avg / 60).toFixed(1) }} мин</td>
+          <!-- <td>{{ (rf100SD / 60).toFixed(1) }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="table-header">1E</div>
+    <table class="table table-striped">
+      <tbody>
+        <tr class="table-sub-header">
+          <td>Модул</td>
+          <td>Дейност</td>
+          <td>Средно</td>
+          <!-- <td>SD</td> -->
+        </tr>
+        <tr *ngFor="let task of oneETasks">
+          <td>{{ task.partOf }}</td>
+          <td>{{ task.taskName }}</td>
+          <td>{{ (task.averageTime / 60).toFixed(1) }} мин</td>
+          <!-- <td>{{ (task.standardDeviation / 60).toFixed(1) }}</td> -->
+        </tr>
+        <tr class="total-time">
+          <td></td>
+          <td>Общо:</td>
+          <td>{{ (oneEAvg / 60).toFixed(1) }} мин</td>
+          <!-- <td>{{ (oneESD / 60).toFixed(1) }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="table-header">hARTT</div>
+    <table class="table table-striped">
+      <tbody>
+        <tr class="table-sub-header">
+          <td>Модул</td>
+          <td>Дейност</td>
+          <td>Средно</td>
+          <!-- <td>SD</td> -->
+        </tr>
+        <tr *ngFor="let task of harttTasks">
+          <td>{{ task.partOf }}</td>
+          <td>{{ task.taskName }}</td>
+          <td>{{ (task.averageTime / 60).toFixed(1) }} мин</td>
+          <!-- <td>{{ (task.standardDeviation / 60).toFixed(1) }}</td> -->
+        </tr>
+        <tr class="total-time">
+          <td></td>
+          <td>Общо:</td>
+          <td>{{ (harttAvg / 60).toFixed(1) }} мин</td>
+          <!-- <td>{{ (harttSD / 60).toFixed(1) }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

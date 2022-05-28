@@ -1,0 +1,66 @@
+<!-- <div class="row">
+  <div class="col-xs-12">
+    <h2>Задачи, които предстоят да се стартират:</h2>
+    <select
+      multiple
+      class="form-control"
+      style="height: 200px; font-size: 24px"
+    >
+      <option *ngFor="let task of currentUserTasks">
+        <p *ngIf="task.status == 'pending'"> {{task.task.partOf}} -- {{ task.task.taskName }}</p>
+      </option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Задачи, които са в режим пауза:</h2>
+    <select
+      multiple
+      class="form-control"
+      style="height: 200px; font-size: 24px"
+    >
+    <option *ngFor="let task of currentUserTasks">
+      <p *ngIf="task.status == 'paused'"> {{task.task.partOf}} -- {{ task.task.taskName }}</p>
+    </option>
+    </select>
+  </div>
+</div> -->
+<div class="row">
+  <div class="container-fluid">
+    <h2 class="page-title">Задачи, които предстоят да се стартират:</h2>
+
+    <div class="wrapper">
+      <div class="card col-xs-9 col-sm-5 col-md-6 col-lg-4" *ngFor="let task of currentUserTasks">
+        <h2 class="card-title">{{ task.task.taskName }}</h2>
+        <h3 class="card-body">{{ task.task.model }} - {{ task.task.partOf }}</h3>
+        <h3 class="card-body">{{task.count}} бр.</h3>
+        <div class="hidden-button">
+          <button (click)="onTaskStarted(task._id!)" class="btn-lg btn-block btn-success">Стартиране</button>
+        </div>
+      </div>
+    </div>
+
+    <h1 *ngIf="!tasksCount">Нямате добавени задачи</h1>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="row">
+    <div class="container-fluid">
+      <h2 class="page-title">Задачи, които са в режим пауза:</h2>
+
+      <div class="wrapper">
+        <div class="card paused-card col-sm-5 col-md-6" *ngFor="let task of currentUserPausedTasks">
+          <h2 class="card-title">{{ task.task.taskName }}</h2>
+         <h3 class="card-body">{{ task.task.model }} - {{ task.task.partOf }}</h3>
+         <h3 class="card-body">{{task.count}} бр.</h3>
+        <div class="hidden-button">
+          <button (click)="onTaskStarted(task._id!)" class="btn-lg btn-block btn-success">Стартиране</button>
+        </div>
+      </div>
+    </div>
+    <h1 *ngIf="!pausedTasksCount">Нямате добавени задачи</h1>
+  </div>
+</div>

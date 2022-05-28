@@ -1,0 +1,82 @@
+mat-expansion-panel {
+  margin-bottom: 2px;
+}
+
+mat-panel-description {
+  justify-content: right;
+}
+
+mat-panel-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+#worker-id-input {
+  display: none;
+}
+
+#task-id-input {
+  display: none;
+}
+
+#task-input, #worker-input {
+  cursor: default;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#count-input {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.list-group-item {
+  cursor: pointer;
+  border-color: lightgrey;
+  color: black;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.list-group-item:hover {
+  background-color: rgba(211, 211, 211, 0.288);
+}
+
+.list-group-item:active {
+  background-color: lightgrey;
+}
+
+.classHidden {
+  display: none;
+}
+
+.message {
+  /* opacity: 0; */
+  padding: 10px;
+  padding-left: 32px;
+  border-radius: 0.5em;
+  font-size: 16px;
+  font-weight: 500;
+  /* text-align: center; */
+  cursor: default;
+
+  animation: fadeOut ease 4s;
+}
+
+.error {
+  color: rgb(145, 0, 0);
+  background-color: rgb(245, 177, 177);
+  border: rgb(145, 0, 0) solid 1px;
+}
+
+.success {
+  color: rgb(0, 97, 0);
+  background-color: rgba(108, 184, 108, 0.836);
+  border: rgb(0, 97, 0) solid 1px;
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  40% {opacity: 1;}
+  100% {opacity: 0;}
+}
